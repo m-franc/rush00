@@ -3,7 +3,7 @@
 $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
 
 	$user_login = $_POST["pseudo"];
-	$user_password = $_GET["passwd"];
+	$user_password = $_POST["passwd"];
 
 		$req = $connect->prepare('SELECT * FROM users WHERE login = ?');
 		$req->bind_param('s', $user_login);

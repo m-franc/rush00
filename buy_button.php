@@ -12,7 +12,7 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 		{
 			$connect->query('UPDATE products SET quantity = '. ($prod["quantity"] - 1) .' WHERE id = ' . $product_id);
 			if ($_COOKIE["$product_id"] > 0)
-				setcookie("$product_id", $_COOKIE["$id"] + 1);
+				setcookie("$product_id", $_COOKIE["$product_id"] + 1);
 			else
 				setcookie("$product_id", 1);
 		}

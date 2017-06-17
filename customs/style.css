@@ -31,8 +31,18 @@ footer
 
 #connexion
 {
-	float:right;
-	padding-right: 50px;
+	/*padding-right: 50px;*/
+}
+
+.right
+{
+    margin-top: 15px;
+    padding-right: 50px;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+	line-height: 40px;
+	text-align: center;
 }
 
 #nom_du_site
@@ -43,6 +53,7 @@ footer
 	margin-top: 0px !important;
 	padding-top:40px;
 	width: 300px;
+	display: inline-block;
 }
 
 .form
@@ -123,4 +134,15 @@ footer
 .titre
 {
 	text-align: center;
+}
+
+#cart
+{
+	display: inline-block;
+	position: absolute;
+	overflow: auto;
+	max-height: calc(100vh - 202px);
+	text-align: center;
+	width: calc(100% - 201px);
+	padding-top: 50px;
 }
