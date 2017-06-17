@@ -12,20 +12,19 @@ else
 	if ($_GET["type"] == "categories")
 	{
 		?>
-		<form class="form" method="post" cible="list_new.php">
+		<form class="form" method="post" cible="new_category.php">
 			<label>Nom de la catégorie : </label>
 			<input type="text" name="name_categorie">
 			<br>
+			<input type="hidden" name="id" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>">
 			<input type="submit" name="submit" value="valider">
 		</form>
-		<?php
-		new_category($connect, $_POST["name_categorie"]);
-		
+		<?php	
 	}
 	else if ($_GET["type"] == "users")
 	{
 		?>
-		<form class="form" method="post" cible="list_new.php">
+		<form class="form" method="post" cible="new_user.php">
 			<label>Pseudo : </label>
 			<input type="text" name="pseudo">
 			<br>
@@ -42,16 +41,15 @@ else
 			Oui <input type="radio" name="user_groupe" value="1">
 			Non <input type="radio" name="user_groupe" value="0">
 			<br>
+			<input type="hidden" name="id" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>">
 			<input type="submit" name="submit" value="Valider">
 		</form>
 		<?php
-		new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
 	}
 	else if ($_GET["type"] == "products")
 	{
-		
 		?>
-		<form class="form" method="post" cible="list_new.php">
+		<form class="form" method="post" cible="new_product.php">
 			<label>Nom : </label>
 			<input type="text" name="name">
 			<br>
@@ -73,11 +71,11 @@ else
 			echo "</select>";
 			?>
 			<br>
+			<input type="hidden" name="id" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>">
 			<input type="submit" name="submit" value="Valider">
 
 		</form>
 		<?php
-		new_product($connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
 	}
 	else
 		echo "ERROR\n";
