@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$connect = mysqli_connect("localhost", "admin", "admin") or die ("Error " . mysqli_error($connect));
 
 ?>
 
