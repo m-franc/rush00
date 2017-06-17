@@ -33,7 +33,7 @@
 		die();
 	}
 
-	$pass = hash("whirlpool", "batman");
+	$pass = hash("sha512", "batman");
 
 	$sql = "INSERT INTO `rush00`.`users` (
 	`id`,

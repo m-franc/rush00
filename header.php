@@ -9,9 +9,6 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="customs/bootstrap/css/bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="customs/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="customs/bootstrap/css/bootstrap.css.map">
 	<link rel="stylesheet" type="text/css" href="customs/style.css">
 	<title>Site E-commerce</title>
 </head>

@@ -4,7 +4,7 @@ include_once("header.php");
 
 ?>
 
-<form class="form">
+<form class="form" action="login_process.php" method="POST">
 	<label>Pseudo : </label>
 	<input type="text" name="pseudo">
 	<br>
