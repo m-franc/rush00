@@ -9,12 +9,15 @@ header
 {
 	height: 100px;
 	width: 100%;
+	background: #ECF0F1;
+	border-bottom: solid black 1px;
 }
 
 footer
 {
-	height: 100;
+	height: 100px;
 	margin: 0 auto;
+	background: #ECF0F1;
 	border-top: solid black 1px;
 	width: 100%;
 }
@@ -23,5 +26,28 @@ footer
 {
 	text-align: center;
 	color: grey;
-	padding-top: 30px;
+	padding-top: 40px;
+}
+
+#connexion
+{
+	float:right;
+	padding-right: 50px;
+}
+
+#nom_du_site
+{
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+	padding-top:40px;
+	width: 300px;
+}
+
+.form
+{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }

@@ -16,5 +16,16 @@ session_start();
 </head>
 	<body>
 	<header>
-		<h1>Site E-commerce</h1>
+		<h1 id="nom_du_site">Site E-commerce</h1>
+		<div id="connexion">
+			<span id="login">
+				<a href="signin.php">Se connecter</a>
+			</span>
+			<span>
+			|
+			</span>
+			<span id="logout">
+				<a href="signup.php">S'inscrire</a>
+			</span>
+		</div>
 	</header>
