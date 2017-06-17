@@ -1,0 +1,27 @@
+body
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+header
+{
+	height: 100px;
+	width: 100%;
+}
+
+footer
+{
+	height: 100;
+	margin: 0 auto;
+	border-top: solid black 1px;
+	width: 100%;
+}
+
+#credit
+{
+	text-align: center;
+	color: grey;
+	padding-top: 30px;
+}
