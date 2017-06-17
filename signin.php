@@ -9,7 +9,7 @@ include_once("header.php");
 	<input type="text" name="pseudo">
 	<br>
 	<label>Mot de passe : </label>
-	<input type="text" name="passwd">
+	<input type="password" name="passwd">
 	<br>
 	<input type="submit" name="submit" value="Valider">
 </form>

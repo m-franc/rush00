@@ -9,16 +9,13 @@ include_once("header.php");
 	<input type="text" name="pseudo">
 	<br>
 	<label>Mot de passe : </label>
-	<input type="text" name="passwd">
+	<input type="password" name="passwd">
 	<br>
 	<label>Confirmation mot de passe : </label>
-	<input type="text" name="confirm_passwd">
+	<input type="password" name="confirm_passwd">
 	<br>
 	<label>E-mail : </label>
 	<input type="email" name="email">
-	<br>
-	<label>Téléphone</label>
-	<input type="text" name="tel">
 	<br>
 	<input type="submit" name="submit" value="Valider">
 </form>

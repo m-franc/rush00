@@ -17,8 +17,6 @@
 	$sql = "CREATE TABLE `rush00`.`users` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
 		`login` VARCHAR(32) NOT NULL ,
-		`fname` VARCHAR(32) NOT NULL ,
-		`lname` VARCHAR(32) NOT NULL ,
 		`password` TEXT NOT NULL ,
 		`email` VARCHAR(100) NOT NULL ,
 		`user_groupe` INT NOT NULL,
@@ -77,6 +75,14 @@
 	NULL,  
 	'PC');";
 
+	if (mysqli_query($connect, $sql))
+		echo "CATEGORY CREATED\n";
+	else
+	{
+		echo "CATEGORY NOT CREATED\n";
+		die();
+	}
+
 	$sql = "INSERT INTO `rush00`.`categories` (
 	`id`,
 	`name`)
@@ -84,12 +90,28 @@
 	NULL,  
 	'PS4');";
 
+	if (mysqli_query($connect, $sql))
+		echo "CATEGORY CREATED\n";
+	else
+	{
+		echo "CATEGORY NOT CREATED\n";
+		die();
+	}
+
 	$sql = "INSERT INTO `rush00`.`categories` (
 	`id`,
 	`name`)
 	VALUES (
 	NULL,  
 	'XBOX ONE');";
+
+	if (mysqli_query($connect, $sql))
+		echo "CATEGORY CREATED\n";
+	else
+	{
+		echo "CATEGORY NOT CREATED\n";
+		die();
+	}
 
 	$sql = "INSERT INTO `rush00`.`categories` (
 	`id`,
@@ -123,30 +145,6 @@
 		die();
 	}
 
-	$sql = "INSERT INTO `rush00`.`products` (
-	`id` ,
-	`name` ,
-	`price` ,
-	`quantity` ,
-	`image`)
-	VALUES
-	(
-	NULL ,
-	'plop' ,
-	'2' ,
-	'10' ,
-	'http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg'
-	);";
-
-
-	if (mysqli_query($connect, $sql))
-			echo "PRODUCT CREATED\n";
-	else
-	{
-		echo "PRODUCT NOT CREATED\n";	
-		die();
-	}
-	
 	$sql = "INSERT INTO `rush00`.`products` (
 	`id` ,
 	`name` ,
@@ -229,7 +227,6 @@
 		die();
 	}
 
-
 	$sql = "INSERT INTO `rush00`.`categories_products` (
 	`category_id`,
 	`product_id`)
@@ -248,22 +245,8 @@
 	`category_id`,
 	`product_id`)
 	VALUES (
-	1,  
-	2);";
-
-	if (mysqli_query($connect, $sql))
-			echo "CATEGORIES TABLE CREATED\n";
-	else
-	{
-		echo "CATEGORIES TABLE NOT CREATED\n";
-		die();
-	}
-	$sql = "INSERT INTO `rush00`.`categories_products` (
-	`category_id`,
-	`product_id`)
-	VALUES (
 	2,  
-	2);";
+	1);";
 
 	if (mysqli_query($connect, $sql))
 			echo "CATEGORIES TABLE CREATED\n";
@@ -277,7 +260,7 @@
 	`product_id`)
 	VALUES (
 	3,  
-	2);";
+	1);";
 	
 	if (mysqli_query($connect, $sql))
 			echo "CATEGORIES TABLE CREATED\n";
@@ -291,7 +274,7 @@
 	`product_id`)
 	VALUES (
 	4,  
-	2);";
+	1);";
 	
 	if (mysqli_query($connect, $sql))
 			echo "CATEGORIES TABLE CREATED\n";
@@ -305,7 +288,7 @@
 	`product_id`)
 	VALUES (
 	1,  
-	3);";
+	2);";
 	
 	if (mysqli_query($connect, $sql))
 			echo "CATEGORIES TABLE CREATED\n";
