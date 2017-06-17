@@ -38,16 +38,12 @@
 	$sql = "INSERT INTO `rush00`.`users` (
 	`id`,
 	`login`,
-	`fname`,
-	`lname`,
 	`password`,
 	`email`,
 	`user_groupe`)
 	VALUES (
 	NULL, 
-	'batman', 
-	'Bruce',
-	'Wayne',
+	'batman',
 	'$pass',
 	'batman@yopmail.com',
 	'0');";
