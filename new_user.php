@@ -1,9 +1,7 @@
 <?php
 
-
-function 	new_user($login, $password, $confirm_password, $email, $user_groupe)
+function 	new_user($connect, $login, $password, $confirm_password, $email, $user_groupe)
 {
-
 	if ($password != $confirm_password)
 	{
 		echo "Le champs mot de passe et confirmation de mot de passe ne sont pas identique\n";

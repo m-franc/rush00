@@ -8,7 +8,7 @@ if ($_GET["type"] == NULL)
 	echo "ERROR\n";
 else
 {
-	include_once("../header.php");
+	include_once("header.php");
 	if ($_GET["type"] == "categories")
 	{
 		?>
@@ -19,7 +19,7 @@ else
 			<input type="submit" name="submit" value="valider">
 		</form>
 		<?php
-		new_category($_POST["name_categorie"]);
+		new_category($connect, $_POST["name_categorie"]);
 		
 	}
 	else if ($_GET["type"] == "users")
@@ -45,11 +45,11 @@ else
 			<input type="submit" name="submit" value="Valider">
 		</form>
 		<?php
-		new_user($_POST["pseudo"], $_POST["fname"], $_POST["lname"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+		new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
 	}
 	else if ($_GET["type"] == "products")
 	{
-		$category = get_category();
+		
 		?>
 		<form class="form" method="post" cible="list_new.php">
 			<label>Nom : </label>
@@ -64,10 +64,20 @@ else
 			<label>Image : </label>
 			<input type="text" name="image">
 			<br>
+			<?php
+
+			$categories = get_categories($connect);
+			echo "<select name='category[]' multiple>";
+			foreach ($categories as $category)
+				echo "<option value='".$category["name"]."'>".$category["name"]."<br>";
+			echo "</select>";
+			?>
+			<br>
 			<input type="submit" name="submit" value="Valider">
+
 		</form>
 		<?php
-		new_product($_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"]);
+		new_product($connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
 	}
 	else
 		echo "ERROR\n";
