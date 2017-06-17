@@ -1,5 +1,8 @@
 <?php
 
+include_once("new_category.php");
+include_once("new_user.php");
+include_once("new_product.php");
 
 if ($_GET["type"] == NULL)
 	echo "ERROR\n";
@@ -16,10 +19,8 @@ else
 			<input type="submit" name="submit" value="valider">
 		</form>
 		<?php
-		$name_categorie = $_POST["name_categorie"];
-		echo "La nouvelle categories : ".$name_categorie."\n";
-		if (!($query = mysqli_query($connect, "INSERT INTO categories (name) VALUES('".$name_categorie."')")))
-			echo "ERROR\n";
+		new_category($connect, $_POST["name_categorie"]);
+		
 	}
 	else if ($_GET["type"] == "users")
 	{
@@ -27,12 +28,6 @@ else
 		<form class="form" method="post" cible="list_new.php">
 			<label>Pseudo : </label>
 			<input type="text" name="pseudo">
-			<br>
-			<label>Prénom : </label>
-			<input type="text" name="fname">
-			<br>
-			<label>Nom : </label>
-			<input type="text" name="lname">
 			<br>
 			<label>Mot de passe : </label>
 			<input type="password" name="password">
@@ -50,35 +45,11 @@ else
 			<input type="submit" name="submit" value="Valider">
 		</form>
 		<?php
-		$login = $_POST["pseudo"];
-		$fname = $_POST["fname"];
-		$lname = $_POST["lname"];	
-		if ($_POST["password"] != $_POST["confirm_password"])
-		{
-			echo "Le champs mot de passe et confirmation de mot de passe ne sont pas identique\n";
-			die();
-		}
-		$password = hash("sha512", $_POST["password"]);
-		$email = $_POST["email"];
-		$user_groupe = intval($_POST["user_groupe"]);
-		if (!($query = mysqli_query($connect, "INSERT INTO users (login,
-																fname, 
-																lname, 
-																password, 
-																email, 
-																user_groupe) VALUES('".$login."',
-																				'".$fname."',
-																				'".$lname."',
-																				'".$password."',
-																				'".$email."',
-																				'".$user_groupe."')")))
-		{
-			echo "fail";
-			echo "ERROR\n";
-		}
+		new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
 	}
 	else if ($_GET["type"] == "products")
 	{
+		
 		?>
 		<form class="form" method="post" cible="list_new.php">
 			<label>Nom : </label>
@@ -93,24 +64,20 @@ else
 			<label>Image : </label>
 			<input type="text" name="image">
 			<br>
+			<?php
+
+			$categories = get_categories($connect);
+			echo "<select name='category[]' multiple>";
+			foreach ($categories as $category)
+				echo "<option value='".$category["name"]."'>".$category["name"]."<br>";
+			echo "</select>";
+			?>
+			<br>
 			<input type="submit" name="submit" value="Valider">
+
 		</form>
 		<?php
-		$name = $_POST["name"];
-		$price = intval($_POST["price"]);
-		$quantity = intval($_POST["quantity"]);
-		$image = $_POST["image"];
-		if (!($query = mysqli_query($connect, "INSERT INTO products (name,
-																price, 
-																quantity, 
-																image) VALUES('".$name."',
-																				'".$price."',
-																				'".$quantity."',
-																				'".$image."')")))
-		{
-			echo "fail";
-			echo "ERROR\n";
-		}
+		new_product($connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
 	}
 	else
 		echo "ERROR\n";

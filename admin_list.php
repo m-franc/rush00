@@ -16,7 +16,7 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["login"]." - ".$user["email"]."</li>";
+				echo "<li>".$user["id"]." - ".$user["login"]." - ".$user["email"]." - <a href='list_modif.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
 			echo "</ul>";
 		}
 		else if ($type_list == "products")
@@ -25,7 +25,7 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]." - ".$user["price"]." - ".$user["quantity"]."</li>";
+				echo "<li>".$user["id"]." - ".$user["name"]." - ".$user["price"]." - ".$user["quantity"]." - <a href='list_modif.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
 			echo "</ul>";
 		}
 		else if ($type_list == "categories")
@@ -34,7 +34,7 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]."</li>";
+				echo "<li>".$user["id"]." - ".$user["name"]." - <a href='list_modif.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
 			echo "</ul>";
 		}
 		$list = mysqli_fetch_array($list);
