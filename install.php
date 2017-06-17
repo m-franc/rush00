@@ -144,8 +144,8 @@
 
 
 	$sql = "INSERT INTO `rush00`.`categories_products` (
-	`id`,
-	`name`)
+	`category_id`,
+	`product_id`)
 	VALUES (
 	1,  
 	1);";
