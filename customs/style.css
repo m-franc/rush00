@@ -21,8 +21,6 @@ footer
 	background: #ECF0F1;
 	border-top: solid black 1px;
 	width: 100%;
-	z-index: 3;
-	position: absolute;
 }
 
 #credit
@@ -53,6 +51,7 @@ footer
     border: black 2px solid;
     padding: 5px;
     text-decoration: none;
+    margin: 0 auto;
     color: white;
     background-color: dimgray;
 }
@@ -83,7 +82,7 @@ footer
 
 #nom_du_site
 {
-	margin-left: 0px !important;
+	margin-left: 20px;
 	margin-right: 0px !important;
 	margin-bottom: 0px !important;
 	margin-top: 0px !important;
@@ -233,4 +232,29 @@ footer
 #home h1, #home h2
 {
 	color: #205520;
+}
+
+.list_admin tr td
+{
+	padding-right: 20px;
+	padding-left: 20px;
+	border-top: solid #205520 1px;
+}
+
+#content_admin
+{
+	margin-left: 30px; 
+	margin-bottom: 30px; 
+}
+
+#img_product
+{
+	width: 30px;
+}
+
+#hello a
+{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
 }
