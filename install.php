@@ -133,6 +133,7 @@
 
 	$sql = "CREATE TABLE `rush00`.`products` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
+		`date` TIMESTAMP NOT NULL ,
 		`name` VARCHAR(255) NOT NULL ,
 		`price` INT NOT NULL ,
 		`quantity` INT NOT NULL ,
