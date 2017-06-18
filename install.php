@@ -1,12 +1,12 @@
 #!/usr/bin/php
 <?php
 
-	
+
+
 	$connect = mysqli_connect("localhost", "admin", "admin") or die ("Error " . mysqli_error($connect));
-	include_once("user.php");
-	include_once("product.php");
-	include_once("category.php");
+
 	$sql = "CREATE DATABASE IF NOT EXISTS `rush00`";
+
 
 	if (mysqli_query($connect, $sql))
 		echo "DB CREATED\n";
@@ -320,12 +320,20 @@
 		die();
 	}
 
+	include_once("user.php");
+	include_once("product.php");
+	include_once("categories.php");
 
-	new_category($connect, "3DS");
-	new_product("Battlefield 1", 60, 40, "https://d3isma7snj3lcx.cloudfront.net/optim/images/gallery/10/105345/battlefield-1-pc-521f5b10.jpg", array("XBOX", "PS4", "PC"));
-	new_product("Mario Kart", 50, 20, "http://www.mundodescargas.com/videojuegos/2k14/06/mario_kart_8/imagenes/portada_mario_kart_8.jpg", array("SWITCH", "3DS"));
-	new_product("Half-Life 2", 200, 2, "http://static.fnac-static.com/multimedia/images_produits/ZoomPE/2/5/3/3348542180352/tsp20130828194456/Half-Life-2.jpg", array("PC"));
-	new_product("Star Craft 2", 40, 7, "http://media.ldlc.com/ld3/zoom/2010/LD0000777610.jpg", array("pc"));
+	$connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
+
+	new_category($connect, "DS");
+	new_product($connect, "Battlefield 1", 60, 40, "https://d3isma7snj3lcx.cloudfront.net/optim/images/gallery/10/105345/battlefield-1-pc-521f5b10.jpg", array("XBOX ONE", "PS4", "PC"));
+	new_product($connect, "Mario Kart", 50, 20, "http://www.mundodescargas.com/videojuegos/2k14/06/mario_kart_8/imagenes/portada_mario_kart_8.jpg", array("SWITCH", "DS"));
+	new_product($connect, "Half-Life 2", 200, 2, "http://static.fnac-static.com/multimedia/images_produits/ZoomPE/2/5/3/3348542180352/tsp20130828194456/Half-Life-2.jpg", array("PC"));
+	new_product($connect, "Star Craft 2", 40, 7, "http://media.ldlc.com/ld3/zoom/2010/LD0000777610.jpg", array("PC"));
+	new_product($connect, "Halo 5", 60, 100, "https://www.halo.fr/wp-content/uploads/2014/06/1_1_4_halo-guardians-jaquette.jpg", array("XBOX ONE"));
+	new_product($connect, "Fire Emblem", 40, 40, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_R6NJHAY7rqnfs8LWiaoSz1_lZV0rl5a-vd5g4DM9reYSHMs3", array("DS"));
+	new_product($connect, "GTAV", 60, 100, "https://img.generation-nt.com/gta-5-pochette_090224000001382682.jpg", array("PS4", "XBOX ONE", "PC"));
 	mysqli_close($connect);
 
 ?>
