@@ -302,6 +302,7 @@
 
 	$sql = "CREATE TABLE `rush00`.`purchase` (
 		`id` INT NOT NULL AUTO_INCREMENT ,
+		`id_user` INT NOT NULL,
 		`login` VARCHAR(32) NOT NULL ,
 		`products` TEXT NOT NULL ,
 		`price` INT NOT NULL,

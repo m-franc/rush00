@@ -54,6 +54,20 @@ footer
     background-color: dimgray;
 }
 
+#mycart span
+{
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: red;
+    overflow: hidden;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
 #nom_du_site
 {
 	margin-left: 0px !important;

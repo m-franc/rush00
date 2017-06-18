@@ -5,8 +5,8 @@
 		$req = 'SELECT * FROM users WHERE id = '. $_SESSION["id_user"];
 		$user = $connect->query($req);
 		$user = $user->fetch_assoc();
-		$req = $connect->prepare('SELECT * FROM purchase WHERE login = ?');
-		$req->bind_param('s', $user["login"]);
+		$req = $connect->prepare('SELECT * FROM purchase WHERE id_user = ?');
+		$req->bind_param('s', $user["id"]);
 		$req->execute();
 		$purchase = $req->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -27,6 +27,7 @@
 		echo ('<div>Vous n\'avez pas encore passe de commamde.</div>');?>
 	</div>
 	<a id="delete" href="delete_process.php">Supprimer le compte</a>
+	<a id="modif" href="modif.php">Modifier le compte</a>
 </div>
 
 
