@@ -227,3 +227,8 @@ footer
 	padding-top: 50px;
 
 }
+
+#home h1, #home h2
+{
+	color: #205520;
+}
