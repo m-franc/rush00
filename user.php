@@ -22,8 +22,10 @@ function 	get_users($connect)
 
 function 	del_user_by_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM users WHERE id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM users WHERE id = '".$id."'"))) {
 		echo "FAIL DELETE USER";
+		die();
+	}
 }
 
 function 	new_user($connect, $login, $password, $confirm_password, $email, $user_groupe)
@@ -45,6 +47,7 @@ function 	new_user($connect, $login, $password, $confirm_password, $email, $user
 	{
 		echo "fail";
 		echo "ERROR\n";
+		die();
 	}
 }
 
@@ -64,6 +67,7 @@ function 	modif_user($id, $connect, $login, $password, $confirm_password, $email
 	{
 		echo "fail";
 		echo "ERROR\n";
+		die();
 	}
 }
 

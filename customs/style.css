@@ -104,6 +104,17 @@ footer
 	height: 300px;
 }
 
+.product input
+{
+    border: black 2px solid;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: dimgray;
+    line-height: 17px;
+    cursor: pointer;
+}
+
 #category {
     display: inline-block;
     position: absolute;
@@ -137,6 +148,7 @@ footer
 	height: 70px;
 	text-align: right;
 	line-height: 70px;
+    overflow: hidden;
 }
 
 
