@@ -5,6 +5,13 @@
 ?>
 
 <div id="navbar">
+	<div class="tab">
+		<a href="category.php?id=">
+			<div>
+				TOUS LES JEUX!
+			</div>
+		</a>
+	</div>
 <?php foreach ($category as $cat) { ?>
 	<div class="tab">
 		<a href="category.php?id=<?= $cat["id"]?>">
