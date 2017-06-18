@@ -37,6 +37,14 @@ if ($_POST["submit"] == "valider")
 				echo "<li>".$user["id"]." - ".$user["name"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
 			echo "</ul>";
 		}
+		else if ($type_list == "purchase")
+		{
+			echo "<h3>Commandes : </h3>\n";
+			echo "<ul>";
+			foreach($list as $purchase)
+				echo "<li>".$purchase["id"]." - ".$purchase["login"]." - ".$purchase["products"]." - ".$purchase["price"]."</li>";
+			echo "</ul>";
+		}
 		$list = mysqli_fetch_array($list);
 	}
 }
