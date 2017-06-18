@@ -21,6 +21,8 @@ footer
 	background: #ECF0F1;
 	border-top: solid black 1px;
 	width: 100%;
+	z-index: 3;
+	position: absolute;
 }
 
 #credit
