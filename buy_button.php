@@ -17,6 +17,8 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 				setcookie("$product_id", 1);
 		}
 	}
+	if ($category_id == "home")
+		header("Location: index.php");
 	header("Location: category.php?id=".$category_id);
 	die();
 ?>

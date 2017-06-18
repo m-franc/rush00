@@ -195,29 +195,6 @@
 		die();
 	}
 	
-	$sql = "INSERT INTO `rush00`.`products` (
-	`id` ,
-	`name` ,
-	`price` ,
-	`quantity` ,
-	`image`)
-	VALUES
-	(
-	NULL ,
-	'Isaac' ,
-	'20' ,
-	'50' ,
-	'https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcS1g7UHgtZ0NWD9ve93BSxt2j5Jy0yRoDVxSIvxTJNTUn0LjnG65kWh3iwPpYAZc2FsGhwpvLDQNsJx7Joe0.78LPJ394P5fzSOmi.hxtzj_yXsnzGCh7HxOPIvm9kxwzuYQ7hrpnv0EJi8uxjwnog0xpSkfhi6TME04RastfINQ-&w=200&h=300&format=jpg'
-	);";
-
-	if (mysqli_query($connect, $sql))
-			echo "PRODUCT CREATED\n";
-	else
-	{
-		echo "PRODUCT NOT CREATED\n";	
-		die();
-	}
-
 	$sql = "CREATE TABLE `rush00`.`categories_products` (
 		`category_id` INT NOT NULL ,
 		`product_id` INT NOT NULL
