@@ -9,7 +9,7 @@ include_once("header.php");
 //	$user = mysqli_fetch_array($verif_user);
 	?>
 	<h2 class="titre">Administrateur : <?php echo $user["login"]; ?></h2>
-	<form method="post" cible="admin_list.php" class="form">
+	<form method="get" action="admin_list.php" class="form">
 		<select name="admin_list">
 			<option value="users">Utilisateurs</option>
 			<option value="products">Produits</option>
@@ -22,7 +22,6 @@ include_once("header.php");
 	<?php
 
 //}
-include_once("admin_list.php");
-include_once("footer.php");
+
 
 ?>
