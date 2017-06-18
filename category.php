@@ -1,8 +1,11 @@
 <?php
 
+	$category_id = $_GET["id"];
+	if (!$category_id)
+		header('Location: index.php');
 	include_once("header.php");
 	include_once("navbar.php");
-	$category_id = $_GET["id"];
+
 	if (is_numeric($category_id)) {
 		$req = 'SELECT * FROM categories WHERE id = ' . $category_id;
 		$category = mysqli_query($connect, $req);
