@@ -1,13 +1,21 @@
 <?php
 
+session_start();
+
+include_once("user.php");
+
+$connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
+$verif_user = get_user_by_id($connect, $_SESSION["id_user"]);
+$user = $verif_user->fetch_assoc();
+if ($user["user_groupe"] == 0)
+{
+	header("Location: index.php");
+	die();
+}
+
 include_once("header.php");
 
-//if (!($verif_user = mysqli_query($connect, "SELECT id, login FROM users WHERE id = ".$_SESSION["id_user"]." AND users.admin = 1")))
-//	echo "ERROR\n";
-//else
-//{
-//	$user = mysqli_fetch_array($verif_user);
-	?>
+?>
 	<h2 class="titre">Administrateur : <?php echo $user["login"]; ?></h2>
 	<form method="get" action="admin_list.php" class="form">
 		<select name="admin_list">
@@ -18,10 +26,3 @@ include_once("header.php");
 		</select>
 		<input type="submit" name="submit" value="valider">
 	</form>
-
-	<?php
-
-//}
-
-
-?>
