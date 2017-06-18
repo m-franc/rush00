@@ -39,10 +39,12 @@ function 	new_product($connect, $name, $price, $quantity, $image, $categories)
 	{	
 		for($o = 0; $o < count($db_categories); $o++)
 		{	
-			$requete = "INSERT INTO categories_products (category_id, product_id) 
-				VALUES('".$db_categories[$o]["id"]."', '".$last_product_id."') WHERE '".$name_categories[$i]."' LIKE '".$db_categories[$o]["name"]."'";
-			echo $requete;
-			$last_product = mysqli_query($connect, $query);
+			if ($name_categories[$i] == $db_categories[$o]["name"])
+			{
+				if (!($last_product = mysqli_query($connect, "INSERT INTO categories_products (category_id, product_id) 
+					VALUES('".$db_categories[$o]["id"]."', '".$last_product_id."')")))
+					echo "FAIL INIT CAT\n";
+			}
 		}
 	}
 }
