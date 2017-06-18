@@ -25,7 +25,7 @@ function 	get_product_by_id($connect, $id)
 	return ($products);
 }
 
-function 	del_categeories_product_by_product_id($connect, $id)
+function 	del_categories_product_by_product_id($connect, $id)
 {
 	if (!($query = mysqli_query($connect, "DELETE FROM categories_products WHERE product_id = '".$id."'")))
 		echo "FAIL DELETE CAT PRODUCT";
@@ -33,7 +33,7 @@ function 	del_categeories_product_by_product_id($connect, $id)
 
 function 	del_product_by_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM products WHERE product_id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM products WHERE id = '".$id."'")))
 		echo "FAIL DELETE PRODUCT";
 }
 
@@ -88,7 +88,7 @@ function 	modif_product($id, $connect, $name, $price, $quantity, $image, $catego
 											WHERE id = '".$id."'")))
 
 		echo "ERROR\n";
-	del_categeories_product_by_product_id($connect, $id);
+	del_categories_product_by_product_id($connect, $id);
 	$categories_tmp = get_categories($connect);
 	if (isset($categories))
 	{

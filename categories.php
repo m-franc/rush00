@@ -22,7 +22,7 @@ function 	get_categories($connect)
 
 function 	del_category_by_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM categories WHERE product_id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM categories WHERE id = '".$id."'")))
 		echo "FAIL DELETE CAT";
 }
 

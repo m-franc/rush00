@@ -22,7 +22,7 @@ function 	get_users($connect)
 
 function 	del_user_by_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM users WHERE product_id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM users WHERE id = '".$id."'")))
 		echo "FAIL DELETE USER";
 }
 
