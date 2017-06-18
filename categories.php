@@ -20,6 +20,18 @@ function 	get_categories($connect)
 	return ($categories);
 }
 
+function 	del_category_by_id($connect, $id)
+{
+	if (!($query = mysqli_query($connect, "DELETE FROM categories WHERE id = '".$id."'")))
+		echo "FAIL DELETE CAT";
+}
+
+function 	del_categeories_product_by_category_id($connect, $id)
+{
+	if (!($query = mysqli_query($connect, "DELETE FROM categories_products WHERE category_id = '".$id."'")))
+		echo "FAIL DELETE CAT PRODUCT";
+}
+
 function 	new_category($connect, $category)
 {
 	if (!($query = mysqli_query($connect, "INSERT INTO categories (name) VALUES('".$category."')")))
@@ -34,7 +46,4 @@ function 	modif_category($id, $connect, $category)
 	}
 }
 
-//else
-//	modif_category(intval($_POST["id"]), $connect, $_POST["name_categorie"]);
-//header("Location: admin.php");
 ?>

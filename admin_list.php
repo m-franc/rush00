@@ -16,7 +16,7 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["login"]." - ".$user["email"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
+				echo "<li>".$user["id"]." - ".$user["login"]." - ".$user["email"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
 			echo "</ul>";
 		}
 		else if ($type_list == "products")
@@ -25,7 +25,7 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]." - ".$user["price"]." - ".$user["quantity"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
+				echo "<li>".$user["id"]." - ".$user["name"]." - ".$user["price"]." - ".$user["quantity"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
 			echo "</ul>";
 		}
 		else if ($type_list == "categories")
@@ -34,7 +34,15 @@ if ($_POST["submit"] == "valider")
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></li>";
+				echo "<li>".$user["id"]." - ".$user["name"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
+			echo "</ul>";
+		}
+		else if ($type_list == "purchase")
+		{
+			echo "<h3>Commandes : </h3>\n";
+			echo "<ul>";
+			foreach($list as $purchase)
+				echo "<li>".$purchase["id"]." - ".$purchase["login"]." - ".$purchase["products"]." - ".$purchase["price"]."</li>";
 			echo "</ul>";
 		}
 		$list = mysqli_fetch_array($list);

@@ -14,6 +14,7 @@ include_once("header.php");
 			<option value="users">Utilisateurs</option>
 			<option value="products">Produits</option>
 			<option value="categories">Catégories</option>
+			<option value="purchase">Commandes</option>
 		</select>
 		<input type="submit" name="submit" value="valider">
 	</form>
