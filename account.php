@@ -27,10 +27,17 @@
 		echo ('<div>Vous n\'avez pas encore passe de commamde.</div>');?>
 	</div>
 	<br>
-	<a id="delete" class="button" href="delete_process.php">Supprimer le compte</a>
+	<a id="delete" class="button" href="#" onclick="myFunction()">Supprimer le compte</a>
 	<a id="modif" class="button" href="modif.php">Modifier le compte</a>
 </div>
 
 <?php
 	include_once("footer.php");
 ?>
+
+<script>
+function myFunction() {
+    if (confirm("Voulez vous vraiment suprimer votre compte ?"))
+    	window.location.href = 'delete_process.php';
+}
+</script>
