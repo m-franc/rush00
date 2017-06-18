@@ -5,7 +5,7 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 	$category_id = $_GET["cat"];
 	$product_id = $_GET["id"];
 
-	if (is_numeric($category_id) && is_numeric($product_id)) {
+	if ((is_numeric($category_id) || $category_id == "home") && is_numeric($product_id)) {
 		$req = $connect->query('SELECT quantity FROM products WHERE id = '.$product_id);
 		$prod = $req->fetch_assoc();
 		if ($prod["quantity"] > 0)

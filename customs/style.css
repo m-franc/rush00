@@ -202,7 +202,7 @@ footer
 	display: inline-block;
 	position: absolute;
 	overflow: auto;
-	max-height: calc(100vh - 202px);
+	max-height: calc(100vh - 252px);
 	text-align: center;
 	width: calc(100% - 201px);
 	padding-top: 50px;
