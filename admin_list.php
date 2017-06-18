@@ -23,7 +23,7 @@ if ($_GET["submit"] == "valider")
 	{
 		if ($type_list == "users")
 		{
-			echo "<h3>Utilisateurs : </h3>\n";
+			echo "<h3 class=''>Utilisateurs : </h3>\n";
 			echo "<ul>";
 			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
 			foreach($list as $user)

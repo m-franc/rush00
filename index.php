@@ -12,7 +12,7 @@ include_once("user.php");
 
 ?>
 
-<div id="home">Bienvenue sur Site E-commerce
+<div id="home">Bienvenue sur 42-Games
 
 Vous pouvez acceder a votre panier <a href="mycart.php">ici</a>.
 <br>
