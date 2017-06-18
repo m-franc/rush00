@@ -2,6 +2,7 @@ body
 {
 	width: 100%;
 	margin: 0;
+	font-family: verdana;
 	padding: 0;
 }
 
@@ -54,6 +55,16 @@ footer
     background-color: dimgray;
 }
 
+.button
+{
+   border: black 2px solid;
+    padding: 5px;
+    line-height: 40px;
+    text-decoration: none;
+    color: white;
+    background-color: dimgray;
+}
+
 #mycart span
 {
     position: absolute;
@@ -76,6 +87,7 @@ footer
 	margin-top: 0px !important;
 	padding-top:40px;
 	width: 300px;
+	font-family: arial;
 	display: inline-block;
 	color: black;
 }
@@ -118,7 +130,7 @@ footer
 	height: 100%;
 	min-height: calc(100vh - 202px);
 	width: 200px;
-	background-color: #ECF0F1;
+	background-color: white;
 	border-right: solid black 1px;
 }
 
@@ -142,7 +154,7 @@ footer
 
 .tab:hover
 {
-	background-color: #99a9c0;
+	background-color: #ECF0F1;
 }
 
 #navbar a:hover
@@ -158,6 +170,8 @@ footer
 .titre
 {
 	text-align: center;
+	font-family: arial;
+	color: dimgrey;
 }
 
 #cart

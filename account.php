@@ -26,12 +26,10 @@
 	}} else
 		echo ('<div>Vous n\'avez pas encore passe de commamde.</div>');?>
 	</div>
-	<a id="delete" href="delete_process.php">Supprimer le compte</a>
-	<a id="modif" href="modif.php">Modifier le compte</a>
+	<br>
+	<a id="delete" class="button" href="delete_process.php">Supprimer le compte</a>
+	<a id="modif" class="button" href="modif.php">Modifier le compte</a>
 </div>
-
-
-
 
 <?php
 	include_once("footer.php");

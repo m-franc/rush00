@@ -18,23 +18,23 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="customs/style.css">
-	<title>Site E-commerce</title>
+	<title>42-Games</title>
 </head>
 	<body>
 	<header>
-		<a href="index.php"><h1 id="nom_du_site">Site E-commerce</h1></a>
+		<a href="index.php"><h1 id="nom_du_site">42-Games</h1></a>
 		<div class="right">
 			<div id="mycart"><a href="mycart.php">Mon Panier<?php if($cart):?><span><?=$cart?></span><?php endif;?></a></div>
 			<div id="connexion">
 				<? if (!$_SESSION["login"]): ?>
 					<span id="login">
-						<a href="signin.php">Se connecter</a>
+						<a class="button" href="signin.php">Se connecter</a>
 					</span>
 					<span>
 					|
 					</span>
 					<span id="logout">
-						<a href="signup.php">S'inscrire</a>
+						<a class="button" href="signup.php">S'inscrire</a>
 					</span>
 				<? else: ?>
 
@@ -45,7 +45,7 @@
 					|
 					</span>
 					<span id="logout">
-						<a href="logout_process.php">Se deconnecter</a>
+						<a class="button" href="logout_process.php">Se deconnecter</a>
 					</span>
 				<? endif; ?>
 			</div>
