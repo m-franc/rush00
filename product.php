@@ -25,6 +25,18 @@ function 	get_product_by_id($connect, $id)
 	return ($products);
 }
 
+function 	del_categeories_product_by_product_id($connect, $id)
+{
+	if (!($query = mysqli_query($connect, "DELETE FROM categories_products WHERE product_id = '".$id."'")))
+		echo "FAIL DELETE CAT PRODUCT";
+}
+
+function 	del_product_by_id($connect, $id)
+{
+	if (!($query = mysqli_query($connect, "DELETE FROM products WHERE product_id = '".$id."'")))
+		echo "FAIL DELETE PRODUCT";
+}
+
 function 	new_product($connect, $name, $price, $quantity, $image, $categories)
 {
 	if (!($query = mysqli_query($connect, "INSERT 
@@ -76,6 +88,7 @@ function 	modif_product($id, $connect, $name, $price, $quantity, $image, $catego
 											WHERE id = '".$id."'")))
 
 		echo "ERROR\n";
+	del_categeories_product_by_product_id($connect, $id);
 	$categories_tmp = get_categories($connect);
 	if (isset($categories))
 	{
@@ -91,10 +104,11 @@ function 	modif_product($id, $connect, $name, $price, $quantity, $image, $catego
 		{	
 			if ($name_categories[$i] == $db_categories[$o]["name"])
 			{
-				if (!($last_product = mysqli_query($connect, "UPDATE categories_products 
-															  SET category_id = '".$db_categories[$o]["id"]."' 
-															  WHERE product_id = '".$id."'")))
-					echo "FAIL INIT CAT\n";
+				if (!($last_product = mysqli_query($connect, "INSERT 
+															  INTO categories_products (category_id, product_id) 
+															  VALUES('".$db_categories[$o]["id"]."', 
+															         '".$id."')")))
+					echo "FAIL UPDATE CAT\n";
 			}
 		}
 	}

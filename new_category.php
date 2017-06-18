@@ -10,5 +10,6 @@ if ($_POST["id"] == "")
 	new_category($connect, $_POST["name_categorie"]);
 else
 	modif_category(intval($_POST["id"]), $connect, $_POST["name_categorie"]);
-//header("Location: admin.php");
+header("Location: admin.php");
+die();
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-
 function 	get_user_by_id($connect, $id)
 {
 	if (!($users = mysqli_query($connect, "SELECT * FROM users WHERE id = '".$id."'")))
@@ -19,6 +18,12 @@ function 	get_users($connect)
 		die();
 	}
 	return ($users);
+}
+
+function 	del_user_by_id($connect, $id)
+{
+	if (!($query = mysqli_query($connect, "DELETE FROM users WHERE product_id = '".$id."'")))
+		echo "FAIL DELETE USER";
 }
 
 function 	new_user($connect, $login, $password, $confirm_password, $email, $user_groupe)

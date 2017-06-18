@@ -13,6 +13,6 @@ else
 	echo "LID EST ICI : ".$_POST["id"];
 	modif_user(intval($_POST["id"]), $connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
 }
-//header("Location: admin.php");
-
+header("Location: admin.php");
+die();
 ?>
