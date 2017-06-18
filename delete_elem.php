@@ -22,7 +22,7 @@ else if ($_GET["type"] == "categories")
 	del_categeories_product_by_category_id($connect, $id);
 	del_category_by_id($connect, $_GET["id"]);
 }
-header("Location: admin.php");
+header("Location: admin_list.php?admin_list=".$_GET["type"]."&submit=valider");
 die();
 
 ?>

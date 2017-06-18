@@ -2,10 +2,11 @@
 
 $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
 
-if ($_POST["submit"] == "valider")
-{
-	$type_list = $_POST["admin_list"];
+include_once("admin.php");
 
+if ($_GET["submit"] == "valider")
+{
+	$type_list = $_GET["admin_list"];
 	if (!($list = mysqli_query($connect, "SELECT * FROM ".$type_list."")))
 		echo "ERROR\n";
 	else
@@ -48,5 +49,5 @@ if ($_POST["submit"] == "valider")
 		$list = mysqli_fetch_array($list);
 	}
 }
-
+include_once("footer.php");
 ?>
