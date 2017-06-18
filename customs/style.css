@@ -45,6 +45,15 @@ footer
 	text-align: center;
 }
 
+#mycart a
+{
+    border: black 2px solid;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: dimgray;
+}
+
 #nom_du_site
 {
 	margin-left: 0px !important;
@@ -54,6 +63,7 @@ footer
 	padding-top:40px;
 	width: 300px;
 	display: inline-block;
+	color: black;
 }
 
 .form
@@ -145,4 +155,35 @@ footer
 	text-align: center;
 	width: calc(100% - 201px);
 	padding-top: 50px;
+}
+
+#home
+{
+	display: inline-block;
+	position: absolute;
+	overflow: auto;
+	max-height: calc(100vh - 202px);
+	text-align: center;
+	width: calc(100% - 201px);
+	padding-top: 50px;
+
+}
+
+#home a
+{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+#compte
+{
+	display: inline-block;
+	position: absolute;
+	overflow: auto;
+	max-height: calc(100vh - 202px);
+	text-align: center;
+	width: calc(100% - 201px);
+	padding-top: 50px;
+
 }

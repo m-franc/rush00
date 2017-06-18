@@ -22,7 +22,9 @@
 ?>
 
 <div id="cart">
-		<?php	foreach ($_COOKIE as $id => $q) {
+		<?php
+			$total = 0;	
+			foreach ($_COOKIE as $id => $q) {
 				if (strlen($id) < 4 && strlen($q) < 4)
 				{
 					$req = $connect->prepare('SELECT * FROM products WHERE id = ?');
@@ -40,16 +42,20 @@
 
 		<br>
 
-		<?php if (isset($_SESSION['login'])) {?>
+		<?php if ($total > 0) {
+			if (isset($_SESSION['login'])) {?>
 			<form method="POST" action="buy.php">	
 				<input type="submit" name="OK" value="Valider">
 			</form>
 		<?php }
 		else
 		{ ?>
-			<p>Vous devez <a href="signin.php">vous connecter</a> a votre compte pour valider vos achat.</p>
+			<p>Vous devez <a href="signin.php">vous connecter</a> a votre compte pour valider vos achats.</p>
 			<p>Si vous n'en avez pas, <a href="signup.php">inscrivez vous</a>.</p>
-		<?php } ?>
+		<?php } }
+		else {
+			echo"Votre panier est vide.";
+			}?>
 </div>
 
 

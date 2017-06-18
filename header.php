@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-$connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
+	session_start();
+	$connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
 
 ?>
 
@@ -14,7 +14,7 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 </head>
 	<body>
 	<header>
-		<h1 id="nom_du_site">Site E-commerce</h1>
+		<a href="index.php"><h1 id="nom_du_site">Site E-commerce</h1></a>
 		<div class="right">
 			<div id="mycart"><a href="mycart.php">Mon Panier</a></div>
 			<div id="connexion">
