@@ -19,10 +19,10 @@
 		}
 	}
 
-	$add_buy = $connect->prepare("INSERT INTO purchase (login, price, products) VALUES (?, ?, ?)");
+	$add_buy = $connect->prepare("INSERT INTO purchase (id_user, login, price, products) VALUES (?, ?, ?, ?)");
 	// var_dump($add_buy);
 	// die();
-	$add_buy->bind_param('sis', $_SESSION['login'], $total, $text);
+	$add_buy->bind_param('ssis', $_SESSION['id_user'], $_SESSION['login'], $total, $text);
 	$add_buy->execute();
 
 	header("Location: index.php");

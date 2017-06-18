@@ -7,7 +7,7 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 	$user_password2 = $_POST["confirm_passwd"];
 	$user_email = $_POST["email"];
 
-	if ($user_password == $user_password2)
+	if ($user_password == $user_password2 && strlen($user_login) > 3  && strlen($user_password) > 5)
 	{
 		$req = $connect->prepare('SELECT * FROM users WHERE login = ? OR email = ?');
 		$req->bind_param('ss', $user_login, $user_email);
