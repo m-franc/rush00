@@ -31,6 +31,7 @@ function 	new_user($connect, $login, $password, $confirm_password, $email, $user
 	if ($password != $confirm_password)
 	{
 		echo "Le champs mot de passe et confirmation de mot de passe ne sont pas identique\n";
+		echo "<a href='list_new.php?type=users'>Retour au formulaire</a>";
 		die();
 	}
 	$password = hash("sha512", $password);

@@ -1,7 +1,5 @@
 <?php
 
-include_once("categories.php");
-
 function 	get_products($connect)
 {
 	if (!($products = mysqli_query($connect, "SELECT * 
