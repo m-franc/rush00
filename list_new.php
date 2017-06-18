@@ -1,8 +1,6 @@
 <?php
 
-include_once("new_category.php");
-include_once("new_user.php");
-include_once("new_product.php");
+include_once("categories.php");
 
 if ($_GET["type"] == NULL)
 	echo "ERROR\n";
@@ -12,7 +10,7 @@ else
 	if ($_GET["type"] == "categories")
 	{
 		?>
-		<form class="form" method="post" cible="new_category.php">
+		<form class="form" method="post" action="new_category.php">
 			<label>Nom de la catégorie : </label>
 			<input type="text" name="name_categorie">
 			<br>
@@ -24,7 +22,7 @@ else
 	else if ($_GET["type"] == "users")
 	{
 		?>
-		<form class="form" method="post" cible="new_user.php">
+		<form class="form" method="post" action="new_user.php">
 			<label>Pseudo : </label>
 			<input type="text" name="pseudo">
 			<br>
@@ -45,11 +43,12 @@ else
 			<input type="submit" name="submit" value="Valider">
 		</form>
 		<?php
+
 	}
 	else if ($_GET["type"] == "products")
 	{
 		?>
-		<form class="form" method="post" cible="new_product.php">
+		<form class="form" method="post" action="new_product.php">
 			<label>Nom : </label>
 			<input type="text" name="name">
 			<br>
