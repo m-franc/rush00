@@ -10,7 +10,7 @@
 		$products = mysqli_query($connect, $req);
 		?>
 		<div id="category">
-		<h3>Tous les jeux</h3>
+		<h3>Tous les jeuxgits</h3>
 		<div id="product_list">
 		<?php
 		 foreach ($products as $product) { ?>

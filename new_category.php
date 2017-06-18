@@ -15,9 +15,15 @@ if ($user["user_groupe"] == 0)
 }
 
 if ($_POST["id"] == "")
-	new_category($connect, $_POST["name_categorie"]);
+{
+	if ($_POST["name_categorie"] != NULL)
+		new_category($connect, $_POST["name_categorie"]);
+}
 else
-	modif_category(intval($_POST["id"]), $connect, $_POST["name_categorie"]);
+{	
+	if ($_POST["name_categorie"] != NULL)
+		modif_category(intval($_POST["id"]), $connect, $_POST["name_categorie"]);
+}
 header("Location: admin_list.php?admin_list=categories&submit=valider");
 die();
 ?>

@@ -36,6 +36,16 @@ function 	new_user($connect, $login, $password, $confirm_password, $email, $user
 		echo "<a href='list_new.php?type=users'>Retour au formulaire</a>";
 		die();
 	}
+	$req = $connect->prepare('SELECT * FROM users WHERE login = ? OR email = ?');
+	$req->bind_param('ss', $login, $email);
+	$req->execute();
+	$user = $req->get_result()->fetch_assoc();
+	if ($user)
+	{
+		echo "Ce login ou cet email éxistent déjà ! \n";
+		echo "<a href='list_new.php?type=users'>Retour au formulaire</a>";
+		die();
+	}
 	$password = hash("sha512", $password);
 	if (!($query = mysqli_query($connect, "INSERT INTO users (login,
 															password, 
@@ -56,6 +66,23 @@ function 	modif_user($id, $connect, $login, $password, $confirm_password, $email
 	if ($password != $confirm_password)
 	{
 		echo "Le champs mot de passe et confirmation de mot de passe ne sont pas identique\n";
+		die();
+	}
+	$req = $connect->prepare('SELECT * FROM users WHERE login = ? OR email = ?');
+	$req->bind_param('ss', $login, $email);
+	$req->execute();
+	$user = $req->get_result();
+	if ($user->num_rows > 1)
+	{
+		echo "Ce login et cet email existent déjà ! \n";
+		echo "<a href='list_new.php?type=users'>Retour au formulaire</a>";
+		die();
+	}
+	$user = $user->fetch_assoc();
+	if ($user && $user["id"] != $id)
+	{
+		echo "Ce login ou cet email éxistent déjà ! \n";
+		echo "<a href='list_new.php?type=users'>Retour au formulaire</a>";
 		die();
 	}
 	$password = hash("sha512", $password);
