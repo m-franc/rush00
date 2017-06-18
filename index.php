@@ -4,6 +4,9 @@ include_once("header.php");
 include_once("navbar.php");
 include_once("user.php");
 
+$req = 'SELECT * FROM products WHERE quantity > 0 ORDER BY `date` DESC LIMIT 3';
+$games = mysqli_query($connect, $req);
+$games = $games->fetch_all(MYSQLI_ASSOC);
 //$connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Error " . mysqli_error($connect));
 //$verif_user = get_user_by_id($connect, $_SESSION["id_user"]);
 //print_r($user = $verif_user->fetch_assoc());
