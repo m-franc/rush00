@@ -43,7 +43,6 @@ else
 			<input type="submit" name="submit" value="Valider">
 		</form>
 		<?php
-
 	}
 	else if ($_GET["type"] == "products")
 	{

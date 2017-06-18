@@ -4,7 +4,20 @@ include_once("categories.php");
 
 function 	get_products($connect)
 {
-	if (!($products = mysqli_query($connect, "SELECT * FROM products")))
+	if (!($products = mysqli_query($connect, "SELECT * 
+											  FROM products")))
+	{
+		echo "ERROR\n";
+		die();
+	}
+	return ($products);
+}
+
+function 	get_product_by_id($connect, $id)
+{
+	if (!($products = mysqli_query($connect, "SELECT * 
+											  FROM products 
+											  WHERE id = '".$id."'")))
 	{
 		echo "ERROR\n";
 		die();
@@ -14,13 +27,15 @@ function 	get_products($connect)
 
 function 	new_product($connect, $name, $price, $quantity, $image, $categories)
 {
-	if (!($query = mysqli_query($connect, "INSERT INTO products (name,
-																price, 
-																quantity, 
-																image) VALUES('".$name."',
-																				'".$price."',
-																				'".$quantity."',
-																				'".$image."')")))
+	if (!($query = mysqli_query($connect, "INSERT 
+										   INTO products (name,
+														  price, 
+														  quantity, 
+														  image) 
+										   VALUES('".$name."',
+												  '".$price."',
+												  '".$quantity."',
+												  '".$image."')")))
 
 		echo "ERbhjlROR\n";
 	if (!($last_product = mysqli_query($connect, "SELECT max(id) FROM products GROUP BY id")))
@@ -41,8 +56,10 @@ function 	new_product($connect, $name, $price, $quantity, $image, $categories)
 		{	
 			if ($name_categories[$i] == $db_categories[$o]["name"])
 			{
-				if (!($last_product = mysqli_query($connect, "INSERT INTO categories_products (category_id, product_id) 
-					VALUES('".$db_categories[$o]["id"]."', '".$last_product_id."')")))
+				if (!($last_product = mysqli_query($connect, "INSERT 
+															  INTO categories_products (category_id, product_id) 
+															  VALUES('".$db_categories[$o]["id"]."', 
+															         '".$last_product_id."')")))
 					echo "FAIL INIT CAT\n";
 			}
 		}
@@ -51,19 +68,14 @@ function 	new_product($connect, $name, $price, $quantity, $image, $categories)
 
 function 	modif_product($id, $connect, $name, $price, $quantity, $image, $categories)
 {
-
-	if (!($query = mysqli_query($connect, "INSERT INTO products (name,
-																price, 
-																quantity, 
-																image) VALUES('".$name."',
-																				'".$price."',
-																				'".$quantity."',
-																				'".$image."')")))
+	if (!($query = mysqli_query($connect, "UPDATE products 
+										   SET name = '".$name."',
+										       price = '".$price."', 
+									           quantity = '".$quantity."', 
+											   image = '".$image."'
+											WHERE id = '".$id."'")))
 
 		echo "ERROR\n";
-	if (!($last_product = mysqli_query($connect, "SELECT max(id) FROM products GROUP BY id")))
-		echo "FAIL\n";
-	$last_product_id = $last_product->num_rows;
 	$categories_tmp = get_categories($connect);
 	if (isset($categories))
 	{
@@ -72,11 +84,19 @@ function 	modif_product($id, $connect, $name, $price, $quantity, $image, $catego
 	}
 	foreach ($categories_tmp as $category)
 		$db_categories[] = $category;
-
-	for($i = 0; $i < count($db_categories); $i++)
-	{
-		$last_product = mysqli_query($connect, "INSERT INTO categories_products (category_id, product_id) 
-			VALUES('".$db_categories[$i]["id"]."', '".$last_product_id."') WHERE ".$name_categories[$i]." = ".$db_categories[$i]["name"].")");
+	$i = 0;
+	for($i = 0; $i < count($name_categories); $i++)
+	{	
+		for($o = 0; $o < count($db_categories); $o++)
+		{	
+			if ($name_categories[$i] == $db_categories[$o]["name"])
+			{
+				if (!($last_product = mysqli_query($connect, "UPDATE categories_products 
+															  SET category_id = '".$db_categories[$o]["id"]."' 
+															  WHERE product_id = '".$id."'")))
+					echo "FAIL INIT CAT\n";
+			}
+		}
 	}
 }
 

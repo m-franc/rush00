@@ -9,7 +9,10 @@ $connect = mysqli_connect("localhost", "admin", "admin", "rush00") or die ("Erro
 if ($_POST["id"] == "")
 	new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
 else
-	modif_user(intval($_GET["id"]), $connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+{
+	echo "LID EST ICI : ".$_POST["id"];
+	modif_user(intval($_POST["id"]), $connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+}
 //header("Location: admin.php");
 
 ?>

@@ -1,5 +1,16 @@
 <?php
 
+
+function 	get_user_by_id($connect, $id)
+{
+	if (!($users = mysqli_query($connect, "SELECT * FROM users WHERE id = '".$id."'")))
+	{
+		echo "ERROR\n";
+		die();
+	}
+	return ($users);
+}
+
 function 	get_users($connect)
 {
 	if (!($users = mysqli_query($connect, "SELECT * FROM users")))
@@ -9,7 +20,6 @@ function 	get_users($connect)
 	}
 	return ($users);
 }
-
 
 function 	new_user($connect, $login, $password, $confirm_password, $email, $user_groupe)
 {
@@ -40,13 +50,11 @@ function 	modif_user($id, $connect, $login, $password, $confirm_password, $email
 		die();
 	}
 	$password = hash("sha512", $password);
-	if (!($query = mysqli_query($connect, "INSERT INTO users (login,
-															password, 
-															email, 
-															user_groupe) VALUES('".$login."',
-																			'".$password."',
-																			'".$email."',
-																			'".$user_groupe."')")))
+	if (!($query = mysqli_query($connect, "UPDATE users SET login = '".$login."',
+															password = '".$password."', 
+															email = '".$email."', 
+															user_groupe = '".$user_groupe."'
+															WHERE id = '".$id."'")))
 	{
 		echo "fail";
 		echo "ERROR\n";
