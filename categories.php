@@ -22,20 +22,26 @@ function 	get_categories($connect)
 
 function 	del_category_by_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM categories WHERE id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM categories WHERE id = '".$id."'"))) {
 		echo "FAIL DELETE CAT";
+		die();
+	}
 }
 
 function 	del_categeories_product_by_category_id($connect, $id)
 {
-	if (!($query = mysqli_query($connect, "DELETE FROM categories_products WHERE category_id = '".$id."'")))
+	if (!($query = mysqli_query($connect, "DELETE FROM categories_products WHERE category_id = '".$id."'"))) {
 		echo "FAIL DELETE CAT PRODUCT";
+		die();
+	}
 }
 
 function 	new_category($connect, $category)
 {
-	if (!($query = mysqli_query($connect, "INSERT INTO categories (name) VALUES('".$category."')")))
+	if (!($query = mysqli_query($connect, "INSERT INTO categories (name) VALUES('".$category."')"))) {
 		echo "ERROR\n";
+		die();
+	}
 }
 
 function 	modif_category($id, $connect, $category)
@@ -43,6 +49,7 @@ function 	modif_category($id, $connect, $category)
 	if (!($query = mysqli_query($connect, "UPDATE categories SET name='".$category."' WHERE id='".$id."'")))
 	{
 		echo "ERROR\n";
+		die();
 	}
 }
 

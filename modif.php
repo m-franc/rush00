@@ -16,7 +16,7 @@
 <div id="compte">
 <form class="form" action="modif_process.php" method="POST">
 	<label>Pseudo : </label>
-	<input type="text" name="pseudo" pattern=".{4,}" required title="4 characteres minimum">
+	<input type="text" name="pseudo" pattern=".{4,}" required title="4 characteres minimum" value="<?=$user["login"]?>">
 	<br>
 	<label>E-mail : </label>
 	<input type="email" name="email" value="<?=$user["email"]?>">
