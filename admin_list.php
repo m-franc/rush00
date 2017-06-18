@@ -54,11 +54,11 @@ if ($_GET["submit"] == "valider")
 			echo "<h3>Commandes : </h3>\n";
 			echo "<table class='list_admin'>";
 			foreach($list as $purchase)
-				echo "<tr><td>".$purchase["id"]."</td><td>".$purchase["login"]."</td><td>".$purchase["products"]."</td><td>".$purchase["price"]."</td></tr>";
+				echo "<tr><td>".$purchase["id"]."</td><td>".$purchase["login"]."</td><td>".$purchase["products"]."</td><td>".$purchase["price"]."</td><td><a class='button' href='delete_elem.php?type=".$type_list."&id=".$purchase["id"]."'>Supprimer</a></td></tr>";
 			echo "</table>";
 		}
 		echo "</div>";
-		$list = mysqli_fetch_array($list);
+		//$list = mysqli_fetch_array($list);
 	}
 }
 include_once("footer.php");

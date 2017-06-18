@@ -16,7 +16,13 @@
 <div id="compte">
 	<h3>Mon compte</h3>
 	Nom : <?= $user["login"] ?><br>
-	Email : <?= $user["email"] ?><br><br><br>
+	Email : <?= $user["email"] ?><br>
+	<?php 
+	if ($user["user_groupe"] == 1) 
+		echo "<a class='button' href='admin_list.php'>DASHBOARD</a>";
+	?>
+	<br><br>
+
 	<div id="purchase">
 	<h4>Commandes passees :</h4>
 	<?php
