@@ -21,41 +21,43 @@ if ($_GET["submit"] == "valider")
 		echo "ERROR\n";
 	else
 	{
+		echo "<div id='content_admin'>";
 		if ($type_list == "users")
 		{
-			echo "<h3 class=''>Utilisateurs : </h3>\n";
-			echo "<ul>";
-			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
+			echo "<h3>Utilisateurs : </h3>\n";
+			echo "<a class='button' href='list_new.php?type=".$type_list."'>Ajouter</a>";
+			echo "<table class='list_admin'>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["login"]." - ".$user["email"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
-			echo "</ul>";
+				echo "<tr><td>".$user["id"]."</td><td>".$user["login"]."</td><td>".$user["email"]."</td><td><a class='button' href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></td><td><a class='button' href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></td></tr></li>";
+			echo "</table>";
 		}
 		else if ($type_list == "products")
 		{
 			echo "<h3>Produits : </h3>\n";
-			echo "<ul>";
-			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
+			echo "<a class='button' href='list_new.php?type=".$type_list."'>Ajouter</a>";
+			echo "<table class='list_admin'>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]." - ".$user["price"]." - ".$user["quantity"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
-			echo "</ul>";
+				echo "<tr><td>".$user["id"]."</td><td>".$user["name"]."</td><td><img id='img_product'src='".$user["image"]."'></td><td>Prix : ".$user["price"]."</td><td>Quantité : ".$user["quantity"]."</td><td><a class='button' href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></td><td><a class='button' href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></td></tr>";
+			echo "</table>";
 		}
 		else if ($type_list == "categories")
 		{
 			echo "<h3>Catégories : </h3>\n";
-			echo "<ul>";
-			echo "<li><a href='list_new.php?type=".$type_list."'>Ajouter</a></li>";
+			echo "<a class='button' href='list_new.php?type=".$type_list."'>Ajouter</a>";
+			echo "<table class='list_admin'>";
 			foreach($list as $user)
-				echo "<li>".$user["id"]." - ".$user["name"]." - <a href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a> - <a href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></li>";
-			echo "</ul>";
+				echo "<tr><td>".$user["id"]."</td><td>".$user["name"]."</td><td><a class='button' href='list_new.php?type=".$type_list."&id=".$user["id"]."'>Modifier</a></td><td><a class='button' href='delete_elem.php?type=".$type_list."&id=".$user["id"]."'>Supprimer</a></td></tr>";
+			echo "</table>";
 		}
 		else if ($type_list == "purchase")
 		{
 			echo "<h3>Commandes : </h3>\n";
-			echo "<ul>";
+			echo "<table class='list_admin'>";
 			foreach($list as $purchase)
-				echo "<li>".$purchase["id"]." - ".$purchase["login"]." - ".$purchase["products"]." - ".$purchase["price"]."</li>";
-			echo "</ul>";
+				echo "<tr><td>".$purchase["id"]."</td><td>".$purchase["login"]."</td><td>".$purchase["products"]."</td><td>".$purchase["price"]."</td></tr>";
+			echo "</table>";
 		}
+		echo "</div>";
 		$list = mysqli_fetch_array($list);
 	}
 }

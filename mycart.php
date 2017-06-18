@@ -22,6 +22,7 @@
 ?>
 
 <div id="cart">
+	<div id="content_cart">
 		<?php
 			$total = 0;	
 			foreach ($_COOKIE as $id => $q) {
@@ -56,6 +57,7 @@
 		else {
 			echo"Votre panier est vide.";
 			}?>
+	</div>
 </div>
 
 

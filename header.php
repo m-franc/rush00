@@ -39,7 +39,7 @@
 				<? else: ?>
 
 					<span id="hello">
-						Bonjour <?= $_SESSION["login"] ?>
+						Bonjour <a href="account.php"><?= $_SESSION["login"] ?></a>
 					</span>
 					<span>
 					|
