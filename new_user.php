@@ -14,9 +14,15 @@ if ($user["user_groupe"] == 0)
 }
 
 if ($_POST["id"] == "")
-	new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+{
+	if ($_POST["pseudo"] != NULL && $_POST["password"] != NULL && $_POST["confirm_password"] != NULL && $_POST["email"] != NULL)
+		new_user($connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+}
 else
-	modif_user(intval($_POST["id"]), $connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+{
+	if ($_POST["pseudo"] != NULL && $_POST["password"] != NULL && $_POST["confirm_password"] != NULL && $_POST["email"] != NULL)
+		modif_user(intval($_POST["id"]), $connect, $_POST["pseudo"], $_POST["password"], $_POST["confirm_password"], $_POST["email"], intval($_POST["user_groupe"]));
+}
 header("Location: admin_list.php?admin_list=users&submit=valider");
 die();
 ?>

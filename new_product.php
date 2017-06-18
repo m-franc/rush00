@@ -15,9 +15,15 @@ if ($user["user_groupe"] == 0)
 }
 
 if ($_POST["id"] == "")
-	new_product($connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
+{
+	if ($_POST["name"] != NULL && $_POST["price"] != NULL && $_POST["quantity"] != NULL && $_POST["image"] != NULL && $_POST["category"] != NULL)
+		new_product($connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
+}
 else
-	modif_product(intval($_POST["id"]), $connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
+{
+	if ($_POST["name"] != NULL && $_POST["price"] != NULL && $_POST["quantity"] != NULL && $_POST["image"] != NULL && $_POST["category"] != NULL)
+		modif_product(intval($_POST["id"]), $connect, $_POST["name"], intval($_POST["price"]), intval($_POST["quantity"]), $_POST["image"], $_POST["category"]);
+}
 header("Location: admin_list.php?admin_list=products&submit=valider");
 die();
 ?>
